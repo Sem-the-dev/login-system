@@ -16,22 +16,22 @@ if (isset($_POST["submit"])){
         header("location: ../signup.php?error=emptyinput");
         exit();
     }
-    else if (invalidUid($username) !== false) {
+    if (invalidUid($username) !== false) {
         // sends user back 
         header("location: ../signup.php?error=invaliduid");
         exit();
     }
-    else if (invalidEmail($email) !== false) {
+    if (invalidEmail($email) !== false) {
         // sends user back 
         header("location: ../signup.php?error=invalidemail");
         exit();
     }
-    else if (pwdMatch($pwd, $pwdRepeat) !== false) {
+    if (pwdMatch($pwd, $pwdRepeat) !== false) {
         // sends user back 
         header("location: ../signup.php?error=passwordsdontmatch");
         exit();
     }
-    else if (uidExists($conn, $username, $email) !== false) {
+    if (uidExists($conn, $username, $email) !== false) {
         // sends user back 
         header("location: ../signup.php?error=usernametaken");
         exit();
